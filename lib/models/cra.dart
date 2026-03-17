@@ -38,12 +38,8 @@ class Cra {
   // Règle métier : est-ce qu'on peut modifier ce CRA ?
   bool get estModifiable {
     if (status == CraStatus.approved) return false;
-    final now = DateTime.now();
-    final dansFenetre = now.day >= 22 && now.day <= 28
-        && now.month == mois
-        && now.year == annee;
     if (status == CraStatus.rejected) return true;
-    return dansFenetre;
+    return true;
   }
 
   // Règle métier : peut-on soumettre ?
