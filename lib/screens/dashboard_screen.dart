@@ -161,6 +161,19 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              // Bouton absences
+              OutlinedButton.icon(
+                onPressed: () => context.go('/absences'),
+                icon: const Icon(Icons.beach_access),
+                label: const Text('Mes absences'),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 52),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
