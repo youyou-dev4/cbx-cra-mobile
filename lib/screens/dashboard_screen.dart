@@ -141,7 +141,7 @@ class DashboardScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              // Bouton principal → CRA
+              // Bouton principal 
               ElevatedButton.icon(
                 onPressed: () => context.go('/cra'),
                 icon: const Icon(Icons.calendar_month),

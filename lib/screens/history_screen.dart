@@ -42,7 +42,6 @@ class HistoryScreen extends StatelessWidget {
     final provider = context.watch<CraProvider>();
     final cra = provider.cra;
 
-    // Historique mocké : on affiche plusieurs mois pour la démo
     final historique = [
       _HistoriqueItem(mois: 'Janvier 2026',  cra: cra),
       _HistoriqueItem(mois: 'Décembre 2025', statut: CraStatus.approved,  jours: 22),
@@ -129,7 +128,6 @@ class HistoryScreen extends StatelessWidget {
   }
 }
 
-// Classe helper pour l'historique mocké
 class _HistoriqueItem {
   final String mois;
   final Cra? cra;

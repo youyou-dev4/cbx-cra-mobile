@@ -2,11 +2,11 @@ import '../models/user.dart';
 import '../models/mission.dart';
 import '../models/cra.dart';
 
-// Utilisateur connecté (mock)
+// Utilisateur connecté 
 final mockUser = User(
   id: 'user_1',
   nom: 'Matoub',
-  prenom: 'Prénom',
+  prenom: 'Younes',
   email: 'matoub@cbx.com',
 );
 
@@ -20,21 +20,19 @@ final mockMission = Mission(
   tjm: 450,
 );
 
-// Génère les jours ouvrés de janvier 2026
-// Janvier 2026 : 21 jours de mission, 0 absence
+
 List<CraDay> _genererJoursJanvier() {
   final jours = <CraDay>[];
 
   for (int i = 1; i <= 31; i++) {
     final date = DateTime(2026, 1, i);
-    // On saute les weekends (samedi=6, dimanche=7)
     if (date.weekday == DateTime.saturday || date.weekday == DateTime.sunday) {
       continue;
     }
     jours.add(CraDay(date: date, type: DayType.mission));
   }
 
-  return jours; // 21 jours ouvrés en janvier 2026
+  return jours; 
 }
 
 // CRA de janvier 2026

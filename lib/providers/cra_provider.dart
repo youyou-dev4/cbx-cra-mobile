@@ -26,7 +26,7 @@ class CraProvider extends ChangeNotifier {
     if (index != -1) {
       _cra.jours[index].type = type;
       _cra.jours[index].absenceType = absenceType;
-      notifyListeners(); // Notifie les widgets pour rebuild
+      notifyListeners(); 
     }
   }
 
@@ -51,13 +51,13 @@ class CraProvider extends ChangeNotifier {
   Color couleurJour(DayType type) {
     switch (type) {
       case DayType.mission:
-        return const Color(0xFFD4EDDA); // vert clair
+        return const Color(0xFFD4EDDA); 
       case DayType.absence:
-        return const Color(0xFFFFF3CD); // jaune
+        return const Color(0xFFFFF3CD); 
       case DayType.intercontrat:
-        return const Color(0xFFCCE5FF); // bleu clair
+        return const Color(0xFFCCE5FF); 
       case DayType.vide:
-        return const Color(0xFFF0F0F0); // gris
+        return const Color(0xFFF0F0F0); 
     }
   }
 }

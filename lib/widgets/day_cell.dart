@@ -13,20 +13,28 @@ class DayCell extends StatelessWidget {
     this.onTap,
   });
 
-  Color get _couleur {
-    switch (jour.type) {
-      case DayType.mission:
-        return const Color(0xFFD4EDDA);
-      case DayType.absence:
-        return const Color(0xFFFFF3CD);
-      case DayType.intercontrat:
-        return const Color(0xFFCCE5FF);
-      case DayType.vide:
-        return const Color(0xFFF0F0F0);
-    }
+  Color _couleur(BuildContext context) {
+  final isDark = Theme.of(context).brightness == Brightness.dark;
+  switch (jour.type) {
+    case DayType.mission:
+      return isDark
+          ? const Color(0xFF1B4332)  // vert foncé
+          : const Color(0xFFD4EDDA); // vert clair
+    case DayType.absence:
+      return isDark
+          ? const Color(0xFF3D2B00)  // jaune foncé
+          : const Color(0xFFFFF3CD); // jaune clair
+    case DayType.intercontrat:
+      return isDark
+          ? const Color(0xFF0D2A4A)  // bleu foncé
+          : const Color(0xFFCCE5FF); // bleu clair
+    case DayType.vide:
+      return isDark
+          ? const Color(0xFF2A2A2A)  // gris foncé
+          : const Color(0xFFF0F0F0); // gris clair
   }
+}
 
-  // Initiales du type affiché dans la case
   String get _label {
     switch (jour.type) {
       case DayType.mission:     return 'M';
@@ -49,7 +57,7 @@ class DayCell extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
-          color: _couleur,
+          color: _couleur(context),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: Colors.grey.shade300),
         ),

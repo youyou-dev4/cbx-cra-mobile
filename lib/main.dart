@@ -17,9 +17,12 @@ class CbxApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'CBX CRA',
         debugShowCheckedModeBanner: false,
+
+        // Thème clair
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF1A56DB), // bleu CBX
+            seedColor: const Color(0xFF1A56DB),
+            brightness: Brightness.light,
           ),
           useMaterial3: true,
           appBarTheme: const AppBarTheme(
@@ -38,6 +41,32 @@ class CbxApp extends StatelessWidget {
             ),
           ),
         ),
+
+        // Thème sombre
+        darkTheme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1A56DB),
+            brightness: Brightness.dark,
+          ),
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF1A56DB),
+            foregroundColor: Colors.white,
+            elevation: 0,
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF1A56DB),
+              foregroundColor: Colors.white,
+              minimumSize: const Size(double.infinity, 52),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+        ),
+
+        themeMode: ThemeMode.system,
         routerConfig: router,
       ),
     );
